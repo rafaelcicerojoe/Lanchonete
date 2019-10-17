@@ -1,4 +1,5 @@
 //Link do problema original:  https://www.urionlinejudge.com.br/judge/en/problems/view/1038
+//Comentários por : @rafaelcicerojoe
 
 #include <stdio.h>
 #include <locale.h>//Incluir linguas e caracteres
@@ -97,11 +98,15 @@ float QualAConta(){
 }
 
 int formaDePg(){
+    // Define formas de pagamentos 
+    // Emitido o meio ao fim da compra  
     printf("[1]Dinheiro || [2]Debito || [3]Credito || [4]ticket\n");
     printf("Informe a forma de pagamento:");
     int opt,times;
     scanf("%d",&opt);
     switch(opt){
+        // Recebe-se a forma de compra
+        // Retorna-a e imprime na tela o que foi usado
         case 1:
             printf("dinheiro\n");
             return 1;
@@ -127,10 +132,11 @@ int formaDePg(){
 
 }
 void msgCred(float total){
-    float times;
-    printf("quantas vezes:[1x-5x]:");
+    // Passa-se o total da conta para seu  parcelamento
+    float times, valor;
+    printf("Quantas vezes: "\t"-- Em até 5x --");
     scanf("%f",&times);
-    float valor = total/times;
+    valor = total/times;
     printf("parcelas de %.2f",valor);
 }
 
