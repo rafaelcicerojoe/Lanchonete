@@ -6,6 +6,8 @@
 //Declarações de funções
 void cardapio();
 float QualAConta();
+int formaDePg();
+void msgCred(float t);
 //Declarações de funções
 
 //Função Main
@@ -40,7 +42,7 @@ void cardapio(){ // printa o cardapio
 
 //Função para gerar o valor total da compra
 float QualAConta(){
-    int chave,qtd;
+    int chave,qtd,forma;//i
     float total;
 
     //Chave dos produtos
@@ -52,21 +54,39 @@ float QualAConta(){
     scanf("%d",&qtd);
     printf(" \n\n\n");
 
+    printf("Escolha a forma de pagamento");//i
+    forma = formaDePg();
+
     switch (chave){
         case 1:
             total = 4.00*qtd;;
+            if(forma == 3){
+                msgCred(total);
+            }
             break;
         case 2:
             total = 4.50*qtd;;
+            if(forma == 3){
+                msgCred(total);
+            }
             break;
         case 3:
             total = 5.00*qtd;;
+            if(forma == 3){
+                msgCred(total);
+            }
             break;
         case 4:
             total = 2.00*qtd;;
+            if(forma == 3){
+                msgCred(total);
+            }
             break;
         case 5:
             total = 1.50*qtd;;
+            if(forma == 3){
+                msgCred(total);
+            }
             break;
         default:
             total = 0;
@@ -75,3 +95,46 @@ float QualAConta(){
 
     return total;
 }
+
+int formaDePg(){
+    printf("[1]Dinheiro || [2]Debito || [3]Credito || [4]ticket\n");
+    printf("Informe a forma de pagamento:");
+    int opt,times;
+    scanf("%d",&opt);
+    switch(opt){
+        case 1:
+            printf("dinheiro\n");
+            return 1;
+            break;
+        case 2:
+            printf("debito\n");
+            return 2;
+            break;
+        case 3:
+            printf("credito\n");
+            return 3;
+            break;
+        case 4:
+            printf("ticket\n");
+            return 4;
+            break;
+        default:
+            printf("fiado\n");
+            return -1;
+            break;
+    }
+
+
+}
+void msgCred(float total){
+    float times;
+    printf("quantas vezes:[1x-5x]:");
+    scanf("%f",&times);
+    float valor = total/times;
+    printf("parcelas de %.2f",valor);
+}
+
+
+
+    
+    
